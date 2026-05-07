@@ -10,7 +10,7 @@
 
 ## 1. Bewertungssystem für Produkte
 
-**Testentwurfsverfahren:** Äquivalenzklassenbildung (EP), Grenzwertanalyse (BVA), Fehlerermessen (Error Guessing), Anwendungsfalltest (Use Case Testing)
+**Testentwurfsverfahren:** Anwendungsfalltest (Use Case Testing), Fehlerermessen (Error Guessing), Grenzwertanalyse (BVA)
 
 ### Testfälle:
 
@@ -30,21 +30,17 @@
      - **Erwartetes Ergebnis:** Die neue Bewertung überschreibt die vorherige; es existiert weiterhin nur eine Bewertung dieses Nutzers für das Produkt.
 
 4. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit genau 500 Zeichen.
-     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit exakt 500 Zeichen ein und klickt auf „Abschicken".
-     - **Erwartetes Ergebnis:** Bewertung wird erfolgreich gespeichert.
+   - **Testfall:** Überprüfen des Systemverhaltens bei Feedback-Texten an der Zeichengrenze.
+     - **Eingabe 1:** Text mit 499 Zeichen → **Erwartetes Ergebnis:** Bewertung wird erfolgreich gespeichert.
+     - **Eingabe 2:** Text mit 500 Zeichen → **Erwartetes Ergebnis:** Bewertung wird erfolgreich gespeichert.
+     - **Eingabe 3:** Text mit 501 Zeichen → **Erwartetes Ergebnis:** Fehlermeldung wird angezeigt; Bewertung wird nicht gespeichert.
 
-5. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit 501 Zeichen.
-     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit 501 Zeichen ein und klickt auf „Abschicken".
-     - **Erwartetes Ergebnis:** Fehlermeldung wird angezeigt; Bewertung wird nicht gespeichert.
-
-6. **Fehlerermessen:**
+5. **Fehlerermessen:**
    - **Testfall:** Überprüfen des Systemverhaltens, wenn eine Bewertung ohne Sternauswahl abgeschickt wird.
      - **Eingabe:** Eingeloggter Nutzer lässt die Sternauswahl leer und klickt auf „Abschicken".
      - **Erwartetes Ergebnis:** Fehlermeldung „Bitte wähle eine Sternebewertung aus." Die Bewertung wird nicht gespeichert.
 
-7. **Fehlerermessen:**
+6. **Fehlerermessen:**
    - **Testfall:** Überprüfen, ob das Feedback-Feld leer gelassen werden kann.
      - **Eingabe:** Eingeloggter Nutzer wählt 5 Sterne, lässt das Textfeld leer und klickt auf „Abschicken".
      - **Erwartetes Ergebnis:** Bewertung wird erfolgreich gespeichert; kein Fehler wird angezeigt.
@@ -91,7 +87,7 @@
 
 ## 3. Versandkostenregel
 
-**Testentwurfsverfahren:** Grenzwertanalyse (BVA), Äquivalenzklassenbildung (EP), Fehlerermessen (Error Guessing)
+**Testentwurfsverfahren:** Äquivalenzklassenbildung (EP), Grenzwertanalyse (BVA), Fehlerermessen (Error Guessing)
 
 ### Testfälle:
 
@@ -106,21 +102,12 @@
      - **Erwartetes Ergebnis:** Versandkosten = €0,00; Gesamtbetrag = €30,00.
 
 3. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen der Versandkostenberechnung bei einem Subtotal von genau €20,00.
-     - **Eingabe:** Warenkorb mit Produkten im Gesamtwert von €20,00.
-     - **Erwartetes Ergebnis:** Versandkosten = €0,00 (inklusiver Grenzwert); Gesamtbetrag = €20,00.
+   - **Testfall:** Überprüfen der Versandkostenberechnung an der Grenze von €20,00.
+     - **Eingabe 1:** Subtotal €19,99 → **Erwartetes Ergebnis:** Versandkosten = €5,00; Gesamtbetrag = €24,99.
+     - **Eingabe 2:** Subtotal €20,00 → **Erwartetes Ergebnis:** Versandkosten = €0,00; Gesamtbetrag = €20,00.
+     - **Eingabe 3:** Subtotal €20,01 → **Erwartetes Ergebnis:** Versandkosten = €0,00; Gesamtbetrag = €20,01.
 
-4. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen der Versandkostenberechnung bei einem Subtotal von €19,99.
-     - **Eingabe:** Warenkorb mit Produkten im Gesamtwert von €19,99.
-     - **Erwartetes Ergebnis:** Versandkosten = €5,00; Gesamtbetrag = €24,99.
-
-5. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen der Versandkostenberechnung bei einem Subtotal von €20,01.
-     - **Eingabe:** Warenkorb mit Produkten im Gesamtwert von €20,01.
-     - **Erwartetes Ergebnis:** Versandkosten = €0,00; Gesamtbetrag = €20,01.
-
-6. **Fehlerermessen:**
+4. **Fehlerermessen:**
    - **Testfall:** Überprüfen, ob die Versandkostenanzeige sich dynamisch aktualisiert, wenn ein Produkt entfernt wird und der Subtotal unter €20,00 fällt.
      - **Eingabe:** Warenkorb mit Subtotal €25,00; Nutzer entfernt ein Produkt, sodass der Subtotal auf €15,00 sinkt.
      - **Erwartetes Ergebnis:** Versandkosten wechseln sofort von €0,00 auf €5,00 ohne Seitenneuladung.
@@ -133,12 +120,9 @@
 |---|---|---|---|
 | 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Happy-Path-Test; mit Selenium Login + Formular + Ergebnis prüfen; wichtiger Regressionstest nach jedem Deployment |
 | 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular im DOM vorhanden ist oder nicht; klarer Regressionstest für Zugriffsschutz |
-| 1.4 | Feedback: genau 500 Zeichen | ✅ Ja | `send_keys` mit exakt 500 Zeichen, dann Submit; präzise reproduzierbar mit pytest |
-| 1.5 | Feedback: 501 Zeichen | ✅ Ja | Oberer Grenzwert; zusammen mit 1.4 als Testsuite in pytest automatisierbar |
-| 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM; stabil automatisierbar |
+| 1.4 | Feedback: Grenzwertanalyse (499/500/501 Zeichen) | ✅ Ja | `send_keys` mit drei definierten Eingaben in einer pytest Testsuite; präzise und vollständig automatisierbar |
+| 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM |
 | 2.5 | Modal per ESC schließen | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
 | 2.6 | Zugang per direkter URL nach Ablehnung | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
-| 3.3 | Versandkosten bei €20,00 | ✅ Ja | Kritischer Grenzwert; DOM-Wert nach Warenkorbbestückung prüfen; regressionsrelevant nach jedem Release |
-| 3.4 | Versandkosten bei €19,99 | ✅ Ja | Unterer Grenzwert; zusammen mit 3.3 und 3.5 als Testsuite in pytest automatisierbar |
-| 3.5 | Versandkosten bei €20,01 | ✅ Ja | Oberer Grenzwert; gleiche Begründung wie 3.4 |
-| 3.6 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium prüft ob sich der angezeigte Wert ohne Seitenneuladung ändert; Automatisierung ist hier zuverlässiger als manuelle Beobachtung |
+| 3.3 | Versandkosten Grenzwertanalyse (€19,99/€20,00/€20,01) | ✅ Ja | Drei Eingaben in einer pytest Testsuite; DOM-Wert nach Warenkorbbestückung prüfen; regressionsrelevant nach jedem Release |
+| 3.4 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium prüft ob sich der angezeigte Wert ohne Seitenneuladung ändert; Automatisierung ist hier zuverlässiger als manuelle Beobachtung |
