@@ -52,7 +52,7 @@ Alkoholische Produkte erfordern eine Altersverifikation. Beim Aufrufen der Kateg
 1. Zu welchem genauen Zeitpunkt erscheint das Verifikationsfenster – beim Öffnen der Alkohol-Kategorie, beim Klick auf ein einzelnes Produkt oder beides?
 2. Was passiert, wenn ein Nutzer angibt, unter 18 zu sein oder die Verifikation ablehnt?
 3. Bleibt die Verifikation innerhalb einer Session bestehen, oder erscheint das Fenster bei jedem erneuten Besuch der Kategorie?
-4. Welche Eingabemethode soll zur Altersangabe verwendet werden – eine Ja/Nein-Bestätigung oder die Eingabe des Geburtsdatums?
+4. Kann ich die Alokohol Seiten direkt aufrufen?
 
 **Detaillierte Anforderung:**
 
