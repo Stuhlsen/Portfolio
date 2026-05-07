@@ -30,13 +30,13 @@
      - **Erwartetes Ergebnis:** Die neue Bewertung überschreibt die vorherige; es existiert weiterhin nur eine Bewertung dieses Nutzers für das Produkt.
 
 4. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit genau 250 Zeichen.
-     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit exakt 250 Zeichen ein und klickt auf „Abschicken".
+   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit genau 500 Zeichen.
+     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit exakt 500 Zeichen ein und klickt auf „Abschicken".
      - **Erwartetes Ergebnis:** Bewertung wird erfolgreich gespeichert.
 
 5. **Grenzwertanalyse:**
-   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit 251 Zeichen.
-     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit 251 Zeichen ein und klickt auf „Abschicken".
+   - **Testfall:** Überprüfen des Systemverhaltens bei einem Feedback-Text mit 501 Zeichen.
+     - **Eingabe:** Eingeloggter Nutzer gibt einen Text mit 501 Zeichen ein und klickt auf „Abschicken".
      - **Erwartetes Ergebnis:** Fehlermeldung wird angezeigt; Bewertung wird nicht gespeichert.
 
 6. **Fehlerermessen:**
@@ -133,8 +133,8 @@
 |---|---|---|---|
 | 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Happy-Path-Test; mit Selenium Login + Formular + Ergebnis prüfen; wichtiger Regressionstest nach jedem Deployment |
 | 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular im DOM vorhanden ist oder nicht; klarer Regressionstest für Zugriffsschutz |
-| 1.4 | Feedback: genau 250 Zeichen | ✅ Ja | `send_keys` mit exakt 250 Zeichen, dann Submit; präzise reproduzierbar mit pytest |
-| 1.5 | Feedback: 251 Zeichen | ✅ Ja | Oberer Grenzwert; zusammen mit 1.4 als Testsuite in pytest automatisierbar |
+| 1.4 | Feedback: genau 500 Zeichen | ✅ Ja | `send_keys` mit exakt 500 Zeichen, dann Submit; präzise reproduzierbar mit pytest |
+| 1.5 | Feedback: 501 Zeichen | ✅ Ja | Oberer Grenzwert; zusammen mit 1.4 als Testsuite in pytest automatisierbar |
 | 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM; stabil automatisierbar |
 | 2.5 | Modal per ESC schließen | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
 | 2.6 | Zugang per direkter URL nach Ablehnung | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
