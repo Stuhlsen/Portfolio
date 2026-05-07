@@ -149,7 +149,7 @@ Der Webshop richtet sich an Privatkunden, die online Lebensmittel einkaufen möc
 
 - Anforderungsanalyse (`requirements.md`) ✅
 - Testplandokument (`test plan.md`) ✅
-- Testfälle und Testdesign (`test case design.md`)
+- Testfälle und Testdesign (`test case design.md`) ✅
 - Testdurchführungsprotokoll (`functional test execution.md`)
 - Fehlerbericht (Bug Reports)
 - Abschlussbericht (`test reporting.md`)
