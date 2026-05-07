@@ -49,24 +49,25 @@
 
 ## 2. Altersverifikation für alkoholische Produkte
 
-**Testentwurfsverfahren:** Anwendungsfalltest (Use Case Testing), Äquivalenzklassenbildung (EP), Fehlerermessen (Error Guessing)
+**Testentwurfsverfahren:** Anwendungsfalltest (Use Case Testing), Grenzwertanalyse (BVA), Äquivalenzklassenbildung (EP), Fehlerermessen (Error Guessing)
 
 ### Testfälle:
 
 1. **Anwendungsfalltest:**
    - **Testfall:** Überprüfen, ob das Altersverifikations-Modal beim Aufrufen der Alkohol-Kategorie erscheint.
      - **Eingabe:** Nutzer navigiert zur Produktkategorie „Alkohol".
-     - **Erwartetes Ergebnis:** Modal erscheint mit der Frage, ob der Nutzer 18 Jahre oder älter ist.
+     - **Erwartetes Ergebnis:** Modal erscheint mit einem Eingabefeld für das Geburtsdatum.
 
-2. **Äquivalenzklassenbildung:**
-   - **Testfall:** Überprüfen, ob ein Nutzer nach Bestätigung der Volljährigkeit Zugang zur Alkohol-Kategorie erhält.
-     - **Eingabe:** Nutzer klickt im Modal auf „Ja, ich bin 18 oder älter."
-     - **Erwartetes Ergebnis:** Modal schließt sich; Nutzer erhält Zugang zur Alkohol-Kategorie und sieht die Produkte.
+2. **Grenzwertanalyse:**
+   - **Testfall:** Überprüfen, ob ein Nutzer an der Altersgrenze von 18 Jahren Zugang zur Alkohol-Kategorie erhält.
+     - **Eingabe 1:** Geburtsdatum = heute − 18 Jahre + 1 Tag (einen Tag zu jung) → **Erwartetes Ergebnis:** Zugang verweigert; Fehlermeldung wird angezeigt.
+     - **Eingabe 2:** Geburtsdatum = heute − 18 Jahre (genau 18 Jahre alt) → **Erwartetes Ergebnis:** Zugang zur Alkohol-Kategorie wird gewährt.
+     - **Eingabe 3:** Geburtsdatum = heute − 18 Jahre − 1 Tag (einen Tag älter als 18) → **Erwartetes Ergebnis:** Zugang zur Alkohol-Kategorie wird gewährt.
 
 3. **Äquivalenzklassenbildung:**
-   - **Testfall:** Überprüfen, ob ein Nutzer nach Ablehnung der Altersverifikation Zugang zur Alkohol-Kategorie erhält.
-     - **Eingabe:** Nutzer klickt im Modal auf „Nein, ich bin unter 18."
-     - **Erwartetes Ergebnis:** Nutzer wird zurück zur allgemeinen Produktübersicht weitergeleitet; kein Zugang zur Alkohol-Kategorie.
+   - **Testfall:** Überprüfen, ob ein Nutzer mit einem Alter deutlich unter 18 Jahren Zugang zur Alkohol-Kategorie erhält.
+     - **Eingabe:** Geburtsdatum = heute − 15 Jahre.
+     - **Erwartetes Ergebnis:** Zugang verweigert; Nutzer wird zur allgemeinen Produktübersicht weitergeleitet.
 
 4. **Anwendungsfalltest:**
    - **Testfall:** Überprüfen, ob das Modal innerhalb derselben Session erneut erscheint, nachdem die Verifikation bereits bestätigt wurde.
@@ -74,14 +75,14 @@
      - **Erwartetes Ergebnis:** Modal erscheint nicht erneut; Nutzer erhält direkt Zugang.
 
 5. **Fehlerermessen:**
-   - **Testfall:** Überprüfen, ob ein Nutzer Zugang zur Alkohol-Kategorie erhält, wenn er das Modal ohne Auswahl schließt (z. B. per ESC oder X).
-     - **Eingabe:** Nutzer schließt das Modal ohne Auswahl.
+   - **Testfall:** Überprüfen, ob ein Nutzer Zugang zur Alkohol-Kategorie erhält, wenn er das Modal ohne Datumseingabe schließt (z. B. per ESC oder X).
+     - **Eingabe:** Nutzer schließt das Modal ohne Eingabe.
      - **Erwartetes Ergebnis:** Nutzer erhält keinen Zugang zur Alkohol-Kategorie; er wird zur allgemeinen Produktübersicht zurückgeleitet.
 
 6. **Fehlerermessen:**
-   - **Testfall:** Überprüfen, ob die Alkohol-Kategorie nach Ablehnung über direkte URL-Eingabe erreichbar ist.
-     - **Eingabe:** Nutzer hat das Modal abgelehnt und versucht, die Alkohol-Kategorie über die direkte URL aufzurufen.
-     - **Erwartetes Ergebnis:** Modal erscheint erneut; ohne erneute Bestätigung wird kein Zugang gewährt.
+   - **Testfall:** Überprüfen, ob die Alkohol-Kategorie nach verweigertem Zugang über direkte URL-Eingabe erreichbar ist.
+     - **Eingabe:** Nutzer hat das Modal mit einem Alter unter 18 ausgefüllt und versucht anschließend, die Alkohol-Kategorie über die direkte URL aufzurufen.
+     - **Erwartetes Ergebnis:** Modal erscheint erneut; ohne gültige Altersverifikation wird kein Zugang gewährt.
 
 ---
 
@@ -122,7 +123,8 @@
 | 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular im DOM vorhanden ist oder nicht; klarer Regressionstest für Zugriffsschutz |
 | 1.4 | Feedback: Grenzwertanalyse (499/500/501 Zeichen) | ✅ Ja | `send_keys` mit drei definierten Eingaben in einer pytest Testsuite; präzise und vollständig automatisierbar |
 | 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM |
-| 2.5 | Modal per ESC schließen | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
-| 2.6 | Zugang per direkter URL nach Ablehnung | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
+| 2.2 | Grenzwertanalyse Geburtsdatum (−18J+1T / −18J / −18J−1T) | ✅ Ja | Drei definierte Datumseingaben in einer pytest Testsuite; präzise reproduzierbar |
+| 2.5 | Modal per ESC schließen (ohne Eingabe) | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
+| 2.6 | Zugang per direkter URL nach verweigertem Zugang | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
 | 3.3 | Versandkosten Grenzwertanalyse (€19,99/€20,00/€20,01) | ✅ Ja | Drei Eingaben in einer pytest Testsuite; DOM-Wert nach Warenkorbbestückung prüfen; regressionsrelevant nach jedem Release |
 | 3.4 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium prüft ob sich der angezeigte Wert ohne Seitenneuladung ändert; Automatisierung ist hier zuverlässiger als manuelle Beobachtung |
