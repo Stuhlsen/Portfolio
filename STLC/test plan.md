@@ -14,7 +14,7 @@
 Das Hauptziel ist die Erweiterung des bestehenden Webshops um drei neue Funktionen sowie die Sicherstellung, dass vorhandene Features durch diese Änderungen nicht beeinträchtigt werden.
 
 **Zielgruppe:**  
-Der Webshop richtet sich an Privatkunden ab 18 Jahren, die online Lebensmittel einkaufen möchten. Dazu zählen registrierte Nutzer, die Produkte bewerten oder alkoholische Produkte kaufen möchten, sowie Gastbesucher, die den Shop ohne Konto durchsuchen.
+Der Webshop richtet sich an Privatkunden, die online Lebensmittel einkaufen möchten. Dazu zählen registrierte Nutzer, die Produkte bewerten oder alkoholische Produkte kaufen möchten, sowie Gastbesucher, die den Shop ohne Konto durchsuchen.
 
 **Hardware- und Software-Spezifikationen:**
 
@@ -64,8 +64,6 @@ Der Webshop richtet sich an Privatkunden ab 18 Jahren, die online Lebensmittel e
 
 **Risiken und Probleme:**
 
-- **Keine separate Testumgebung verfügbar**
-  - Maßnahme: Tests in der öffentlichen Instanz, keine echten Bestellungen abschließen
 - **Fehlende oder unvollständige Anforderungen**
   - Maßnahme: Offene Punkte vorab mit dem Product Owner klären
 - **Ressourcenengpass (Einzeltester)**
