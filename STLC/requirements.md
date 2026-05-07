@@ -37,7 +37,7 @@ Nutzer sollen Produkte mit einem 5-Sterne-System bewerten und zusätzlich schrif
 
 **Detaillierte Anforderung:**
 
-Nur eingeloggte Nutzer können eine Produktbewertung abgeben. Pro Nutzer ist eine Bewertung pro Produkt erlaubt; eine erneute Abgabe überschreibt die vorherige. Die Bewertung erfolgt durch Auswahl von 1 bis 5 Sternen, wobei die Sternauswahl ein Pflichtfeld ist. Das schriftliche Feedback ist optional und auf maximal 250 Zeichen begrenzt. Das System zeigt bei Überschreitung des Zeichenlimits eine Fehlermeldung an und verhindert das Speichern. Die angezeigte Durchschnittsbewertung auf der Produktkarte wird als arithmetisches Mittel aller abgegebenen Bewertungen berechnet und auf eine Nachkommastelle gerundet.
+Nur eingeloggte Nutzer, die ein Produkt gekauft haben können eine Produktbewertung abgeben. Pro Nutzer ist eine Bewertung pro Produkt erlaubt; eine erneute Abgabe überschreibt die vorherige. Die Bewertung erfolgt durch Auswahl von 1 bis 5 Sternen, wobei die Sternauswahl ein Pflichtfeld ist. Das schriftliche Feedback ist optional und auf maximal 500 Zeichen begrenzt. Das System zeigt bei Überschreitung des Zeichenlimits eine Fehlermeldung an und verhindert das Speichern. Die angezeigte Durchschnittsbewertung auf der Produktkarte wird als arithmetisches Mittel aller abgegebenen Bewertungen berechnet und auf eine Nachkommastelle gerundet.
 
 ---
 
