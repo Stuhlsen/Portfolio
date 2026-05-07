@@ -131,13 +131,14 @@
 
 | # | Testfall | Automatisieren? | Begründung |
 |---|---|---|---|
-| 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Happy-Path-Test; wichtiger Regressionstest nach jedem Deployment |
-| 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Zugriffsschutz muss nach jedem Release geprüft werden; klarer Regressionstest |
-| 1.4 | Feedback: genau 250 Zeichen | ✅ Ja | Grenzwerttest mit exakt definierten Eingaben – wiederholbar und präzise reproduzierbar |
-| 1.5 | Feedback: 251 Zeichen | ✅ Ja | Oberer Grenzwert; zusammen mit 1.4 als Testsuite automatisierbar |
-| 2.1 | Modal erscheint beim Kategorieaufruf | ⚠️ Bedingt | Technisch automatisierbar, aber Modal- und Session-Verhalten können in UI-Tests fragil sein |
-| 2.5 | Modal per ESC schließen | ❌ Nein | Browserabhängiges Verhalten; besser manuell mit verschiedenen Browsern testen |
-| 2.6 | Zugang per direkter URL nach Ablehnung | ❌ Nein | Sicherheitsrelevanter Test, der manuelles Urteilsvermögen erfordert |
-| 3.3 | Versandkosten bei €20,00 | ✅ Ja | Kritischer Grenzwert; regressionsrelevant nach jedem Release |
-| 3.4 | Versandkosten bei €19,99 | ✅ Ja | Unterer Grenzwert; zusammen mit 3.3 und 3.5 als Testsuite automatisierbar |
+| 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Happy-Path-Test; mit Selenium Login + Formular + Ergebnis prüfen; wichtiger Regressionstest nach jedem Deployment |
+| 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular im DOM vorhanden ist oder nicht; klarer Regressionstest für Zugriffsschutz |
+| 1.4 | Feedback: genau 250 Zeichen | ✅ Ja | `send_keys` mit exakt 250 Zeichen, dann Submit; präzise reproduzierbar mit pytest |
+| 1.5 | Feedback: 251 Zeichen | ✅ Ja | Oberer Grenzwert; zusammen mit 1.4 als Testsuite in pytest automatisierbar |
+| 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM; stabil automatisierbar |
+| 2.5 | Modal per ESC schließen | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
+| 2.6 | Zugang per direkter URL nach Ablehnung | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
+| 3.3 | Versandkosten bei €20,00 | ✅ Ja | Kritischer Grenzwert; DOM-Wert nach Warenkorbbestückung prüfen; regressionsrelevant nach jedem Release |
+| 3.4 | Versandkosten bei €19,99 | ✅ Ja | Unterer Grenzwert; zusammen mit 3.3 und 3.5 als Testsuite in pytest automatisierbar |
 | 3.5 | Versandkosten bei €20,01 | ✅ Ja | Oberer Grenzwert; gleiche Begründung wie 3.4 |
+| 3.6 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium prüft ob sich der angezeigte Wert ohne Seitenneuladung ändert; Automatisierung ist hier zuverlässiger als manuelle Beobachtung |
