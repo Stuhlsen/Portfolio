@@ -119,12 +119,12 @@
 
 | # | Testfall | Automatisieren? | Begründung |
 |---|---|---|---|
-| 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Happy-Path-Test; mit Selenium Login + Formular + Ergebnis prüfen; wichtiger Regressionstest nach jedem Deployment |
-| 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular im DOM vorhanden ist oder nicht; klarer Regressionstest für Zugriffsschutz |
-| 1.4 | Feedback: Grenzwertanalyse (499/500/501 Zeichen) | ✅ Ja | `send_keys` mit drei definierten Eingaben in einer pytest Testsuite; präzise und vollständig automatisierbar |
-| 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium `WebDriverWait` wartet zuverlässig auf Modal-Erscheinen im DOM |
-| 2.2 | Grenzwertanalyse Geburtsdatum (−18J+1T / −18J / −18J−1T) | ✅ Ja | Drei definierte Datumseingaben in einer pytest Testsuite; präzise reproduzierbar |
-| 2.5 | Modal per ESC schließen (ohne Eingabe) | ✅ Ja | `send_keys(Keys.ESCAPE)` ist in Selenium eine einzelne Zeile; browserübergreifend stabil |
-| 2.6 | Zugang per direkter URL nach verweigertem Zugang | ❌ Nein | Selenium prüft nur das Frontend; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
-| 3.3 | Versandkosten Grenzwertanalyse (€19,99/€20,00/€20,01) | ✅ Ja | Drei Eingaben in einer pytest Testsuite; DOM-Wert nach Warenkorbbestückung prüfen; regressionsrelevant nach jedem Release |
-| 3.4 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium prüft ob sich der angezeigte Wert ohne Seitenneuladung ändert; Automatisierung ist hier zuverlässiger als manuelle Beobachtung |
+| 1.1 | Bewertung abgeben (eingeloggt) | ✅ Ja | Klar definierter Ablauf mit Login, Formulareingabe und Ergebnisprüfung; wichtiger Regressionstest nach jeder Änderung |
+| 1.2 | Bewertung abgeben (nicht eingeloggt) | ✅ Ja | Selenium prüft ob das Bewertungsformular auf der Seite angezeigt wird; klarer Regressionstest für Zugriffsschutz |
+| 1.4 | Feedback: Grenzwertanalyse (499/500/501 Zeichen) | ✅ Ja | Drei exakt definierte Texteingaben; wiederholbar und präzise automatisierbar |
+| 2.1 | Modal erscheint beim Kategorieaufruf | ✅ Ja | Selenium kann zuverlässig prüfen ob das Modal auf der Seite erscheint |
+| 2.2 | Grenzwertanalyse Geburtsdatum (−18J+1T / −18J / −18J−1T) | ✅ Ja | Drei exakt definierte Datumseingaben; wiederholbar und präzise automatisierbar |
+| 2.5 | Modal per ESC schließen (ohne Eingabe) | ✅ Ja | Selenium kann Tastatureingaben simulieren; einfach und stabil automatisierbar |
+| 2.6 | Zugang per direkter URL nach verweigertem Zugang | ❌ Nein | Selenium prüft nur die Oberfläche; der Test soll validieren ob der Schutz auch serverseitig greift – das erfordert manuelles Urteilsvermögen |
+| 3.3 | Versandkosten Grenzwertanalyse (€19,99/€20,00/€20,01) | ✅ Ja | Drei exakt definierte Warenkorbwerte; Selenium prüft den angezeigten Betrag; regressionsrelevant nach jeder Änderung |
+| 3.4 | Dynamische Aktualisierung der Versandkosten | ✅ Ja | Selenium kann prüfen ob sich der angezeigte Betrag sofort nach einer Warenkorbänderung aktualisiert; zuverlässiger als manuelle Beobachtung |
