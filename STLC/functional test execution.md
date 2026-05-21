@@ -196,3 +196,97 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 4 | Direkte URL eines alkoholischen Produkts aufrufen: https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb47a76 | Modal erscheint erneut; kein Zugang ohne Verifikation | NOK | /product/66b3a57b3fd5048eacb47a76 | #3 |
  
  
+## Feature 3 – Versandkostenregel
+ 
+### Szenario 3.1: Als Nutzer mit einem Warenkorbwert unter €20,00 sehe ich Versandkosten von €5,00.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 5x Gala Apples à €2,00 in den Warenkorb legen (Subtotal = €10,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen | Versandkosten = €5,00 | OK | /checkout | |
+ 
+<img width="406" height="352" alt="image" src="https://github.com/user-attachments/assets/e9ee7213-08cf-49a4-8cae-5a67429f43c7" />
+
+ 
+---
+ 
+### Szenario 3.2: Als Nutzer mit einem Warenkorbwert über €20,00 sehe ich keine Versandkosten.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 15x Gala Apples à €2,00 in den Warenkorb legen (Subtotal = €30,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen | Versandkosten = €0,00 | OK | /checkout | |
+ 
+<img width="425" height="376" alt="image" src="https://github.com/user-attachments/assets/0b721d02-5f9d-43a8-a64a-02105ae07c91" />
+
+ 
+---
+ 
+### Szenario 3.3: Als Nutzer mit einem Warenkorbwert von €19,99 sehe ich Versandkosten von €5,00.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 8x Gala Apples à €2,00 + 1x Birchwood Quarter Pounders à €2,49 + 1x Tenderstem Broccoli à €1,50 in den Warenkorb legen (Subtotal = €19,99) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen | Versandkosten = €5,00; Gesamtbetrag = €24,99 | OK | /checkout | |
+ 
+<img width="412" height="458" alt="image" src="https://github.com/user-attachments/assets/692d3bfa-ea6a-460e-bfef-d94c20334d81" />
+
+ 
+---
+ 
+### Szenario 3.4: Als Nutzer mit einem Warenkorbwert von genau €20,00 sehe ich keine Versandkosten.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 10x Gala Apples à €2,00 in den Warenkorb legen (Subtotal = €20,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen | Versandkosten = €0,00; Gesamtbetrag = €20,00 | OK | /checkout | |
+ 
+<img width="419" height="370" alt="image" src="https://github.com/user-attachments/assets/4d5f2517-3c44-47e3-b76b-63fc6dd911f1" />
+
+ 
+---
+ 
+### Szenario 3.5: Als Nutzer mit einem Warenkorbwert von €20,01 sehe ich keine Versandkosten.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 9x Gala Apples à €2,00 + 1x Taste of Microwaveable Rice à €0,42 + 1x Orlando Meaty Strips à €0,49 + 1x Easy Peelers à €1,10 in den Warenkorb legen (Subtotal = €20,01) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen | Versandkosten = €0,00; Gesamtbetrag = €20,01 | OK | /checkout | |
+ 
+<img width="412" height="460" alt="image" src="https://github.com/user-attachments/assets/5cec1c5a-6a18-406f-8a1b-140958d28e74" />
+
+ 
+---
+ 
+### Szenario 3.6: Als Nutzer aktualisieren sich die Versandkosten sofort wenn mein Warenkorbwert unter €20,00 fällt.
+ 
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | 9x Gala Apples à €2,00 + 1x Birchwood British Beef Mince à €4,19 in den Warenkorb legen (Subtotal = €22,19) | Produkte werden in den Warenkorb gelegt | OK | /store | |
+| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
+| 5 | Versandkosten prüfen (Subtotal €22,19) | Versandkosten = €0,00 | OK | /checkout | |
+| 6 | Birchwood British Beef Mince aus dem Warenkorb entfernen (Subtotal = €18,00) | Produkt wird entfernt | OK | /checkout | |
+| 7 | Versandkosten ohne Seitenneuladung prüfen | Versandkosten wechseln sofort auf €5,00 | NOK | /checkout | #1 |
+ 
+<img width="410" height="459" alt="image" src="https://github.com/user-attachments/assets/03b47748-ab64-4c17-b00a-985fd5370f26" />
+<img width="446" height="386" alt="image" src="https://github.com/user-attachments/assets/dd9d2f34-fd8b-4f22-97dc-fc54c36f8feb" />
+
+
+ 
