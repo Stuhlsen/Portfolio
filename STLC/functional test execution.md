@@ -52,7 +52,7 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 4 | Aktuellen Durchschnitt notieren | Durchschnittsbewertung ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
 | 5 | Auf „Edit" klicken | Bearbeitungsformular öffnet sich | OK | /product/66b3a57b3fd5048eacb4798f | |
 | 6 | Bewertung auf 3 Sterne ändern und speichern | Bewertung wird auf 3 Sterne aktualisiert | OK | /product/66b3a57b3fd5048eacb4798f | |
-| 7 | Durchschnittsbewertung prüfen | Durchschnittsbewertung hat sich entsprechend geändert | NOK | /product/66b3a57b3fd5048eacb4798f | #4 |
+| 7 | Durchschnittsbewertung prüfen | Durchschnittsbewertung hat sich entsprechend geändert | NOK | /product/66b3a57b3fd5048eacb4798f | [#4](https://github.com/Stuhlsen/Portfolio/issues/4) |
 <img width="779" height="342" alt="image" src="https://github.com/user-attachments/assets/9570fe52-88f8-4939-bd9d-8a7abb6ef885" />
 <img width="1006" height="344" alt="image" src="https://github.com/user-attachments/assets/b3aa302c-6f41-4856-a9fe-4aa7c7b1b3d3" />
 
@@ -70,7 +70,7 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 4 | Bewertungsformular aufrufen | Bewertungsformular ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
 | 5 | Text mit exakt 500 Zeichen in das Feedback-Feld eingeben | Text wird eingegeben; Zeichenzähler zeigt 500/500 | OK | /product/66b3a57b3fd5048eacb4798f | |
 | 6 | Bewertung abschicken | Bewertung wird erfolgreich gespeichert | OK | /product/66b3a57b3fd5048eacb4798f | |
-| 7 | Zeichenzähler und Farbe prüfen | Zeichenzähler zeigt 500/500 in neutraler Farbe | NOK | /product/66b3a57b3fd5048eacb4798f | #5 |
+| 7 | Zeichenzähler und Farbe prüfen | Zeichenzähler zeigt 500/500 in neutraler Farbe | NOK | /product/66b3a57b3fd5048eacb4798f | [#5](https://github.com/Stuhlsen/Portfolio/issues/5) |
 <img width="584" height="343" alt="image" src="https://github.com/user-attachments/assets/c12ffcc4-077a-43d1-bb54-9c12cf991605" />
 
 
@@ -112,7 +112,7 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 |---|---|---|---|---|---|
 | 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
 | 2 | Neue Browser-Session starten (vorheriger Cache geleert) | Neue Session ist aktiv | OK | /store | |
-| 3 | Auf die Kategorie „Alocohol" klicken | Modal erscheint mit Eingabefeld für das Geburtsdatum | NOK | /store | #2 |
+| 3 | Auf die Kategorie „Alocohol" klicken | Modal erscheint mit Eingabefeld für das Geburtsdatum | NOK | /store | [#2](https://github.com/Stuhlsen/Portfolio/issues/2) |
  
 <img width="268" height="110" alt="image" src="https://github.com/user-attachments/assets/d207bce6-5b0d-411b-bcbe-d33be1f5f12a" />
 
@@ -193,7 +193,7 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
 | 2 | Neue Browser-Session starten | Neue Session ist aktiv; Modal erscheint | OK | /store | |
 | 3 | Geburtsdatum 22.05.2008 (unter 18) eingeben | Zugang verweigert | OK | /store | |
-| 4 | Direkte URL eines alkoholischen Produkts aufrufen: https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb47a76 | Modal erscheint erneut; kein Zugang ohne Verifikation | NOK | /product/66b3a57b3fd5048eacb47a76 | #3 |
+| 4 | Direkte URL eines alkoholischen Produkts aufrufen: https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb47a76 | Modal erscheint erneut; kein Zugang ohne Verifikation | NOK | /product/66b3a57b3fd5048eacb47a76 | [#3](https://github.com/Stuhlsen/Portfolio/issues/3) |
  
  
 ## Feature 3 – Versandkostenregel
@@ -283,7 +283,7 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
 | 5 | Versandkosten prüfen (Subtotal €22,19) | Versandkosten = €0,00 | OK | /checkout | |
 | 6 | Birchwood British Beef Mince aus dem Warenkorb entfernen (Subtotal = €18,00) | Produkt wird entfernt | OK | /checkout | |
-| 7 | Versandkosten ohne Seitenneuladung prüfen | Versandkosten wechseln sofort auf €5,00 | NOK | /checkout | #1 |
+| 7 | Versandkosten ohne Seitenneuladung prüfen | Versandkosten wechseln sofort auf €5,00 | NOK | /checkout | [#1](https://github.com/Stuhlsen/Portfolio/issues/1) |
  
 <img width="410" height="459" alt="image" src="https://github.com/user-attachments/assets/03b47748-ab64-4c17-b00a-985fd5370f26" />
 <img width="446" height="386" alt="image" src="https://github.com/user-attachments/assets/dd9d2f34-fd8b-4f22-97dc-fc54c36f8feb" />
