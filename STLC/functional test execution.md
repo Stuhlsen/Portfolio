@@ -27,7 +27,6 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 | 7 | Durchschnittsbewertung auf der Produktkarte prüfen | Durchschnittsbewertung hat sich aktualisiert | OK | /product/66b3a57b3fd5048eacb4798f | |
 <img width="558" height="344" alt="image" src="https://github.com/user-attachments/assets/a0841651-12c4-4f49-ba1b-080ff458ecdb" />
 
-_Screenshots vorhanden_
 
 ---
 
@@ -40,7 +39,6 @@ _Screenshots vorhanden_
 | 3 | Bereich für Bewertungen prüfen | Bewertungsformular ist nicht sichtbar; Hinweis erscheint dass das Produkt zuerst gekauft werden muss | OK | /product/66b3a57b3fd5048eacb4798f | |
 <img width="1025" height="269" alt="image" src="https://github.com/user-attachments/assets/42ddd7be-438c-4d7f-8cc7-320b4e25b2d2" />
 
-_Screenshots vorhanden_
 
 ---
 
@@ -59,7 +57,6 @@ _Screenshots vorhanden_
 <img width="1006" height="344" alt="image" src="https://github.com/user-attachments/assets/b3aa302c-6f41-4856-a9fe-4aa7c7b1b3d3" />
 
 
-_Screenshots vorhanden (Durchschnitt vor und nach dem Edit)_
 
 ---
 
@@ -76,7 +73,6 @@ _Screenshots vorhanden (Durchschnitt vor und nach dem Edit)_
 | 7 | Zeichenzähler und Farbe prüfen | Zeichenzähler zeigt 500/500 in neutraler Farbe | NOK | /product/66b3a57b3fd5048eacb4798f | #5 |
 <img width="584" height="343" alt="image" src="https://github.com/user-attachments/assets/c12ffcc4-077a-43d1-bb54-9c12cf991605" />
 
-_Screenshots vorhanden (roter Zeichenzähler bei 500/500)_
 
 ---
 
@@ -105,6 +101,5 @@ _Screenshots vorhanden (roter Zeichenzähler bei 500/500)_
 <img width="653" height="344" alt="image" src="https://github.com/user-attachments/assets/930f5154-2432-437f-89c8-17d1ad6e85e8" />
 <img width="404" height="67" alt="image" src="https://github.com/user-attachments/assets/807bd527-de98-422d-8dc6-3a8e299b331c" />
 
-_Screenshots vorhanden_
 
 ---
