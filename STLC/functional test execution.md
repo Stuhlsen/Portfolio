@@ -12,43 +12,99 @@ Dieses Dokument enthält die Testdurchführung für die drei neuen Features von 
 
 ---
 
-## Feature 3 – Versandkostenregel
+## Feature 1 – Bewertungssystem für Produkte
 
-### Szenario 1: Als Nutzer von Market Mate sehe ich die korrekten Versandkosten basierend auf meinem Warenkorbwert.
+### Szenario 1.1: Als eingeloggter Nutzer der ein Produkt gekauft hat kann ich eine Bewertung abgeben.
 
 | Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
 |---|---|---|---|---|---|
-| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
-| 2 | Einloggen | Nutzer ist eingeloggt | OK | /store | |
-| 3 | 5x Gala Apples à €2,00 in den Warenkorb legen (Subtotal = €10,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
-| 5 | Versandkosten prüfen (Subtotal €10,00) | Versandkosten = €5,00 | OK | /checkout | |
-| 6 | Warenkorb leeren und 15x Gala Apples à €2,00 hinzufügen (Subtotal = €30,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 7 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
-| 8 | Versandkosten prüfen (Subtotal €30,00) | Versandkosten = €0,00 | OK | /checkout | |
-| 9 | Warenkorb leeren und 8x Gala Apples + 1x Birchwood Quarter Pounders + 1x Tenderstem Broccoli hinzufügen (Subtotal = €19,99) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 10 | Versandkosten prüfen (Subtotal €19,99) | Versandkosten = €5,00 | OK | /checkout | |
-| 11 | Warenkorb leeren und 10x Gala Apples à €2,00 hinzufügen (Subtotal = €20,00) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 12 | Versandkosten prüfen (Subtotal €20,00) | Versandkosten = €0,00 | OK | /checkout | |
-| 13 | Warenkorb leeren und 9x Gala Apples + 1x Taste of Microwaveable Rice + 1x Orlando Meaty Strips + 1x Easy Peelers hinzufügen (Subtotal = €20,01) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 14 | Versandkosten prüfen (Subtotal €20,01) | Versandkosten = €0,00 | OK | /checkout | |
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | Produktdetailseite aufrufen | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 4 | Bewertungsformular aufrufen | Bewertungsformular ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 5 | 4 Sterne auswählen | 4 Sterne sind ausgewählt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 6 | Bewertung abschicken | Bewertung wird gespeichert | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 7 | Durchschnittsbewertung auf der Produktkarte prüfen | Durchschnittsbewertung hat sich aktualisiert | OK | /product/66b3a57b3fd5048eacb4798f | |
+<img width="558" height="344" alt="image" src="https://github.com/user-attachments/assets/a0841651-12c4-4f49-ba1b-080ff458ecdb" />
 
-_Screenshots vorhanden für alle Grenzwerte (€19,99, €20,00, €20,01)_
+_Screenshots vorhanden_
 
 ---
 
-### Szenario 2: Als Nutzer von Market Mate aktualisieren sich die Versandkosten sofort wenn ich meinen Warenkorb ändere.
+### Szenario 1.2: Als Nutzer der ein Produkt nicht gekauft hat kann ich keine Bewertung abgeben.
 
 | Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
 |---|---|---|---|---|---|
-| 1 | https://grocerymate.masterschool.com/store aufrufen | Shop-Seite wird angezeigt | OK | /store | |
-| 2 | Einloggen | Nutzer ist eingeloggt | OK | /store | |
-| 3 | 9x Gala Apples + 1x Birchwood British Beef Mince hinzufügen (Subtotal = €21,99) | Produkte werden in den Warenkorb gelegt | OK | /store | |
-| 4 | Warenkorb aufrufen | Warenkorb wird angezeigt | OK | /checkout | |
-| 5 | Versandkosten prüfen (Subtotal €21,99) | Versandkosten = €0,00 | OK | /checkout | |
-| 6 | Birchwood British Beef Mince aus dem Warenkorb entfernen (Subtotal = €18,00) | Produkt wird entfernt | OK | /checkout | |
-| 7 | Versandkosten ohne Seitenneuladung prüfen | Versandkosten wechseln sofort auf €5,00 | NOK | /checkout | #1 |
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Ohne Login zur Produktdetailseite navigieren | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 3 | Bereich für Bewertungen prüfen | Bewertungsformular ist nicht sichtbar; Hinweis erscheint dass das Produkt zuerst gekauft werden muss | OK | /product/66b3a57b3fd5048eacb4798f | |
+<img width="1025" height="269" alt="image" src="https://github.com/user-attachments/assets/42ddd7be-438c-4d7f-8cc7-320b4e25b2d2" />
 
-_Screenshots vorhanden (vor Neuladen: €0,00, nach Neuladen: €5,00)_
+_Screenshots vorhanden_
+
+---
+
+### Szenario 1.3: Als eingeloggter Nutzer kann ich eine bestehende Bewertung bearbeiten und der Durchschnitt aktualisiert sich.
+
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | Produktdetailseite aufrufen | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 4 | Aktuellen Durchschnitt notieren | Durchschnittsbewertung ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 5 | Auf „Edit" klicken | Bearbeitungsformular öffnet sich | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 6 | Bewertung auf 3 Sterne ändern und speichern | Bewertung wird auf 3 Sterne aktualisiert | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 7 | Durchschnittsbewertung prüfen | Durchschnittsbewertung hat sich entsprechend geändert | NOK | /product/66b3a57b3fd5048eacb4798f | #4 |
+<img width="779" height="342" alt="image" src="https://github.com/user-attachments/assets/9570fe52-88f8-4939-bd9d-8a7abb6ef885" />
+<img width="1006" height="344" alt="image" src="https://github.com/user-attachments/assets/b3aa302c-6f41-4856-a9fe-4aa7c7b1b3d3" />
+
+
+_Screenshots vorhanden (Durchschnitt vor und nach dem Edit)_
+
+---
+
+### Szenario 1.4: Als eingeloggter Nutzer kann ich eine Bewertung mit genau 500 Zeichen abgeben.
+
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | Produktdetailseite aufrufen | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 4 | Bewertungsformular aufrufen | Bewertungsformular ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 5 | Text mit exakt 500 Zeichen in das Feedback-Feld eingeben | Text wird eingegeben; Zeichenzähler zeigt 500/500 | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 6 | Bewertung abschicken | Bewertung wird erfolgreich gespeichert | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 7 | Zeichenzähler und Farbe prüfen | Zeichenzähler zeigt 500/500 in neutraler Farbe | NOK | /product/66b3a57b3fd5048eacb4798f | #5 |
+<img width="584" height="343" alt="image" src="https://github.com/user-attachments/assets/c12ffcc4-077a-43d1-bb54-9c12cf991605" />
+
+_Screenshots vorhanden (roter Zeichenzähler bei 500/500)_
+
+---
+
+### Szenario 1.5: Als eingeloggter Nutzer kann ich keine Bewertung mit mehr als 500 Zeichen abgeben.
+
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | Produktdetailseite aufrufen | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 4 | Bewertungsformular aufrufen | Bewertungsformular ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 5 | Versuch 501 Zeichen in das Feedback-Feld einzugeben | Eingabe wird bei 500 Zeichen blockiert; 501 Zeichen können nicht eingegeben werden | OK | /product/66b3a57b3fd5048eacb4798f | |
+
+
+---
+
+### Szenario 1.6: Als eingeloggter Nutzer kann ich keine Bewertung ohne Sternauswahl abschicken.
+
+| Schritt | Aktion | Erwartetes Ergebnis | OK/NOK | URL | Link zum Issue |
+|---|---|---|---|---|---|
+| 1 | https://grocerymate.masterschool.com/ aufrufen | Startseite wird angezeigt | OK | / | |
+| 2 | Einloggen | Nutzer ist eingeloggt | OK | / | |
+| 3 | Produktdetailseite aufrufen | Produktdetailseite wird angezeigt | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 4 | Bewertungsformular aufrufen | Bewertungsformular ist sichtbar | OK | /product/66b3a57b3fd5048eacb4798f | |
+| 5 | Ohne Sternauswahl auf „Abschicken" klicken | Fehlermeldung erscheint; Bewertung wird nicht gespeichert | OK | /product/66b3a57b3fd5048eacb4798f | |
+<img width="653" height="344" alt="image" src="https://github.com/user-attachments/assets/930f5154-2432-437f-89c8-17d1ad6e85e8" />
+<img width="404" height="67" alt="image" src="https://github.com/user-attachments/assets/807bd527-de98-422d-8dc6-3a8e299b331c" />
+
+_Screenshots vorhanden_
 
 ---
