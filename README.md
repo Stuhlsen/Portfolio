@@ -20,8 +20,10 @@ A full manual testing cycle for three new features of a web shop, from unclear r
 |---|---|---|
 | 1. Requirements analysis | [requirements.md](STLC/requirements.md) | Unclear requirements → clarifying questions → precise, testable requirements |
 | 2. Test plan | [test plan.md](STLC/test%20plan.md) | Scope, test types, risks, entry/exit criteria, schedule |
-| 3. Test case design | [test case design.md](STLC/test%20case%20design.md) | 18 test cases plus an automation-potential assessment |
-| 4. Test execution | [functional test execution.md](STLC/functional%20test%20execution.md) | Step-by-step results (OK/NOK) with screenshots and links to the bug reports |
+| 3. Test environment | [test env setup.md](STLC/test%20env%20setup.md) | Browsers, test accounts, exact test data for every boundary value |
+| 4. Test case design | [test case design.md](STLC/test%20case%20design.md) | 18 test cases plus an automation-potential assessment |
+| 5. Test execution | [functional test execution.md](STLC/functional%20test%20execution.md) | Step-by-step results (OK/NOK) with screenshots and links to the bug reports |
+| 6. Test report | [test reporting.md](STLC/test%20reporting.md) | Results, severity ratings, exit criteria check and release recommendation |
 
 ## Bugs found
 
